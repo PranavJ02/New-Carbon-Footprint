@@ -13,39 +13,40 @@ st.set_page_config(
 # ---------------- CSS STYLING ----------------
 st.markdown("""
 <style>
-
-/* Hide Streamlit header and menu */
-header {visibility: hidden;}
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-
-/* Remove top padding */
-.block-container {
-    padding-top: 1rem;
-}
-
-/* Full background */
-.stApp {
+/* Full page gradient background */
+.css-18e3th9 {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
     background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     font-family: 'Segoe UI', sans-serif;
+    padding-top: 30px;
 }
 
-/* Card */
+/* Card styling */
 .card {
     background: white;
     border-radius: 20px;
-    padding: 2rem;
-    width: 420px;
-    margin: auto;
+    padding: 3rem 2rem;
+    width: 450px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+.card:hover {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
-/* Titles */
 .main-title {
     font-size: 2.2rem;
     font-weight: 700;
-    color: white;
+    color: #fff;
     text-align: center;
+    margin-bottom: 0.5rem;
 }
 
 .subtitle {
@@ -55,6 +56,32 @@ footer {visibility: hidden;}
     margin-bottom: 2rem;
 }
 
+input {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+button {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background: linear-gradient(to right, #764ba2, #667eea);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
 .metric-box {
     background: #e8f4ff;
     padding: 20px;
@@ -62,8 +89,12 @@ footer {visibility: hidden;}
     text-align: center;
     font-size: 22px;
     font-weight: bold;
+    margin-top: 1rem;
 }
 
+.stAlert {
+    border-radius: 10px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -210,6 +241,4 @@ if st.session_state.logged_in:
         st.session_state.logged_in = False
         st.session_state.username = ""
         st.session_state.user_id = None
-
         st.rerun()
-
