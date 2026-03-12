@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # ---------------- CSS STYLING ----------------
-t.markdown("""
+st.markdown("""
 <style>
 
 /* Hide Streamlit header and menu */
@@ -212,3 +212,4 @@ if st.session_state.logged_in:
         st.session_state.user_id = None
 
         st.rerun()
+
